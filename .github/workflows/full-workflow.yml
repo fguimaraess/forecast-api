@@ -41,7 +41,7 @@ jobs:
       name: Create SSH deployment key
       env:
         SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      run: ./scripts/deploy.sh
+      run: ./scripts/#!deploy.sh
 
     - name: Deployment
       if: github.ref == 'refs/heads/master'
