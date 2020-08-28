@@ -1,0 +1,12 @@
+{
+  "App": {
+    "database": {
+      "mongoUrl": "mongodb+srv://ctiowner:uRU0DwTiLXHiwoUG@cluster0.ifkpx.gcp.mongodb.net/surf-forecast?retryWrites=true"
+    },
+    "resources": {
+      "StormGlass": {
+        "apiToken": "test-token"
+      }
+    }
+  }
+}
