@@ -1,6 +1,7 @@
 import { InternalError } from '@src/util/errors/internal-error';
 import config, { IConfig } from 'config';
 import * as HTTPUtil from '@src/util/request';
+import { TimeUtil } from '@src/util/time/timeutil';
 
 export interface ForecastPoint {
   time: string;
@@ -60,12 +61,13 @@ export class StormGlass {
 
   public async fetchPoints(lat: number, lng: number): Promise<ForecastPoint[]> {
     try {
+      const endTimestamp = TimeUtil.getUnixTimeForAFutureDay(1);
       const response = await this.request.get<StormGlassForecastResponse>(
         `${stormGlassResourceConfig.get(
           'apiUrl'
         )}/weather/point?lat=${lat}&lng=${lng}&params=${
           this.stormGlassAPIParams
-        }&source=${this.stormGlassAPISource}`,
+        }&source=${this.stormGlassAPISource}&end=${endTimestamp}`,
         {
           headers: {
             Authorization: stormGlassResourceConfig.get('apiToken'),

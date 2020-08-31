@@ -1,12 +1,16 @@
 {
   "App": {
+    "port": 3000,
     "database": {
-      "mongoUrl": "mongodb+srv://ctiowner:uRU0DwTiLXHiwoUG@cluster0.ifkpx.gcp.mongodb.net/surf-forecast?retryWrites=true"
+      "mongoUrl": "mongodb://localhost:27017/surf-forecast"
     },
     "resources": {
       "StormGlass": {
         "apiToken": "test-token"
       }
+    },
+    "logger": {
+      "enabled": false
     }
   }
 }

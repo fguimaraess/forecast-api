@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import config from 'config';
+import jwt from 'jsonwebtoken';
 import { User } from '@src/models/user';
 
+//version of the user that is send to via API and decoded from the Json Web Token
 export interface DecodedUser extends Omit<User, '_id'> {
   id: string;
 }
